@@ -25,7 +25,18 @@
         <button id="todayBtn" class="btn ghost small">오늘</button>
       </div>
 
-      <div class="card day-weather" id="dayWeather"></div>
+      <div class="card day-weather">
+        <div id="dayWeather" class="dw-body"></div>
+        <button type="button" class="dw-loc" id="locToggle" aria-expanded="false" aria-controls="locPanel">📍 <span id="locName">현재 위치</span> ▾</button>
+        <div id="locPanel" class="loc-panel" hidden>
+          <form id="locForm" class="search">
+            <input id="locInput" type="search" placeholder="지역 검색 (예: 부산, Tokyo)" autocomplete="off" aria-label="지역 검색">
+            <button class="btn primary small" type="submit">검색</button>
+            <button class="btn ghost small" type="button" id="locGeo">📍 현재 위치</button>
+          </form>
+          <ul id="locResults" class="results" hidden></ul>
+        </div>
+      </div>
 
       <form class="card entry-form" id="entryForm" autocomplete="off">
         <h2 id="formTitle">새 일과 기록</h2>
@@ -69,6 +80,25 @@
         </div>
         <div class="progress"><div id="progressBar"></div></div>
         <ul id="entryList" class="entry-list"></ul>
+      </div>
+
+      <div class="card note-card">
+        <div class="list-head">
+          <h2>하루 메모</h2>
+          <span id="noteStatus" class="muted small-text"></span>
+        </div>
+        <div class="note-wx">
+          <div class="note-wx-head">
+            <span class="note-label">이날의 날씨</span>
+            <button type="button" class="btn ghost small" id="noteWxAuto">🌡️ 날씨 정보로 기록</button>
+          </div>
+          <div id="noteWxChips" class="wx-chips" role="group" aria-label="날씨 직접 선택"></div>
+          <div id="noteWxSaved" class="note-wx-saved"></div>
+        </div>
+        <textarea id="noteText" rows="6" maxlength="3000" aria-label="하루 메모" placeholder="오늘 하루는 어땠나요? 자유롭게 적어보세요 (자동 저장돼요)"></textarea>
+        <div class="btn-row">
+          <button type="button" class="btn ghost small" id="noteClear">메모 비우기</button>
+        </div>
       </div>
 
       <div class="card">

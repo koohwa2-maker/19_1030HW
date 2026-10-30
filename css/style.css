@@ -101,8 +101,28 @@ textarea { resize: vertical; }
 .dw-temp { font-size: 1.25rem; font-weight: 700; }
 .dw-temp .hi { color: var(--hi); } .dw-temp .lo { color: var(--lo); }
 .dw-rain { margin-left: auto; color: var(--muted); font-weight: 600; }
-.dw-loc { color: var(--muted); font-size: .82rem; text-decoration: none; }
+.dw-body { display: grid; gap: 10px; }
+.dw-loc { justify-self: start; color: var(--muted); font-size: .82rem; background: none; border: none; padding: 0; cursor: pointer; font: inherit; font-size: .82rem; }
 .dw-loc:hover { color: var(--accent); text-decoration: underline; }
+.loc-panel { display: grid; gap: 0; }
+.loc-panel .search input { flex: 1 1 160px; }
+
+/* 하루 메모 */
+.note-card { display: grid; gap: 12px; }
+.note-card .list-head { margin-bottom: 0; }
+.note-card textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.note-wx { display: grid; gap: 8px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.note-wx-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.note-label { font-size: .85rem; font-weight: 600; color: var(--muted); }
+.wx-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.wx-chip { padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--card);
+  color: var(--ink); font: inherit; font-size: .85rem; cursor: pointer; }
+.wx-chip:hover { background: var(--accent-soft); }
+.wx-chip.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+.note-wx-saved { font-size: .88rem; }
+.note-wx-saved .hi { color: var(--hi); font-weight: 700; }
+.note-wx-saved .lo { color: var(--lo); font-weight: 700; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
 .dw-loading, .dw-empty { color: var(--muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
 /* 입력 폼 */
