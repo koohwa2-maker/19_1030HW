@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>하루 기록 · 일과</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">📒 하루 기록</div>
+    <nav class="tabs">
+      <a href="index.html" class="active">일과 기록</a>
+      <a href="weather.html">날씨</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <!-- 왼쪽: 날짜 / 날씨 / 입력 폼 -->
+    <section class="col">
+      <div class="card date-nav">
+        <button id="prevDay" class="icon-btn" aria-label="이전 날">◀</button>
+        <input type="date" id="datePicker" aria-label="날짜 선택">
+        <button id="nextDay" class="icon-btn" aria-label="다음 날">▶</button>
+        <button id="todayBtn" class="btn ghost small">오늘</button>
+      </div>
+
+      <div class="card day-weather" id="dayWeather"></div>
+
+      <form class="card entry-form" id="entryForm" autocomplete="off">
+        <h2 id="formTitle">새 일과 기록</h2>
+        <div class="form-row">
+          <label>시간
+            <input type="time" id="fTime">
+          </label>
+          <label>분류
+            <select id="fCategory">
+              <option>업무</option>
+              <option>공부</option>
+              <option>운동</option>
+              <option>생활</option>
+              <option>휴식</option>
+              <option>기타</option>
+            </select>
+          </label>
+        </div>
+        <label>한 일
+          <input type="text" id="fTitle" required maxlength="80" placeholder="예: 아침 운동 30분">
+        </label>
+        <label>메모
+          <textarea id="fMemo" rows="3" maxlength="500" placeholder="느낀 점이나 자세한 내용을 적어보세요"></textarea>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="fDone"> 완료함
+        </label>
+        <div class="btn-row">
+          <button class="btn primary" type="submit" id="submitBtn">추가</button>
+          <button class="btn ghost" type="button" id="cancelEdit" hidden>취소</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 오른쪽: 목록 / 날짜별 요약 -->
+    <section class="col wide">
+      <div class="card">
+        <div class="list-head">
+          <h2 id="listTitle">일과</h2>
+          <span id="progressText" class="muted"></span>
+        </div>
+        <div class="progress"><div id="progressBar"></div></div>
+        <ul id="entryList" class="entry-list"></ul>
+      </div>
+
+      <div class="card">
+        <div class="list-head">
+          <h2>날짜별 기록</h2>
+          <span class="muted small-text">날짜를 누르면 이동해요</span>
+        </div>
+        <ul id="dateSummary" class="summary-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/common.js"></script>
+  <script src="js/diary.js"></script>
+</body>
+</html>

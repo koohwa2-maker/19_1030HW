@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>하루 기록 · 날씨</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">📒 하루 기록</div>
+    <nav class="tabs">
+      <a href="index.html">일과 기록</a>
+      <a href="weather.html" class="active">날씨</a>
+    </nav>
+  </header>
+
+  <main class="wx-page">
+    <div class="card search-card">
+      <form id="searchForm" class="search">
+        <input id="cityInput" type="search" placeholder="도시 이름 검색 (예: 부산, Tokyo)" autocomplete="off" aria-label="도시 검색">
+        <button class="btn primary" type="submit">검색</button>
+        <button class="btn ghost" type="button" id="geoBtn">📍 현재 위치</button>
+      </form>
+      <ul id="results" class="results" hidden></ul>
+      <p class="muted small-text">여기서 고른 위치는 일과 기록 페이지의 날씨에도 그대로 적용돼요.</p>
+    </div>
+
+    <div id="status" class="status" hidden></div>
+
+    <section id="wxContent" hidden>
+      <div class="card now-card" id="nowCard"></div>
+
+      <div class="card">
+        <h2>시간별 예보 <span class="muted small-text">(24시간)</span></h2>
+        <div id="hourly" class="hourly"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>7일 예보</h2>
+          <ul id="daily" class="daily"></ul>
+        </div>
+        <div class="card">
+          <h2>오늘의 정보</h2>
+          <div id="todayStats" class="stats"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer muted small-text">날씨 데이터: Open-Meteo.com</footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/weather.js"></script>
+</body>
+</html>
